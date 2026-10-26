@@ -144,8 +144,8 @@ function Hero() {
         </div>
       </div>
       <div className="relative mx-auto h-[420px] w-full max-w-md md:h-[520px]">
-        <img src={PAGES[1].src} alt={PAGES[1].alt} className="absolute left-0 top-8 w-3/5 -rotate-6 rounded-sm shadow-xl ring-1 ring-border" />
-        <img src={PAGES[0].src} alt={PAGES[0].alt} fetchPriority="high" className="absolute right-0 top-0 w-3/5 rotate-3 rounded-sm shadow-2xl ring-1 ring-gold/50" />
+        <img src={PAGES[1]!.src} alt={PAGES[1]!.alt} className="absolute left-0 top-8 w-3/5 -rotate-6 rounded-sm shadow-xl ring-1 ring-border" />
+        <img src={PAGES[0]!.src} alt={PAGES[0]!.alt} fetchPriority="high" className="absolute right-0 top-0 w-3/5 rotate-3 rounded-sm shadow-2xl ring-1 ring-gold/50" />
       </div>
     </section>
   );
@@ -162,7 +162,7 @@ function Gibi() {
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <div className="mx-auto max-w-md overflow-hidden rounded-sm bg-card shadow-xl ring-1 ring-border">
-              <img src={PAGES[active].src} alt={PAGES[active].alt} className="h-auto w-full" />
+              <img src={PAGES[active]!.src} alt={PAGES[active]!.alt} className="h-auto w-full" />
             </div>
             <div className="mt-5 flex justify-center gap-3" role="list" aria-label="Prévia de páginas">
               {PAGES.map((p, i) => (
