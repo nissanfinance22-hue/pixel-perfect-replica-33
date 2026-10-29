@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793260675610,
+      "tag": "0000_pcj_admin_and_comic",
+      "breakpoints": true
+    }
+  ]
 }
