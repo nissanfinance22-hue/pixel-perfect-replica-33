@@ -7,7 +7,7 @@ import p2 from "@/assets/02_GIBI.png.asset.json";
 import p3 from "@/assets/03_gibi.png.asset.json";
 import p4 from "@/assets/04_gibi.png.asset.json";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/cliente")({
   head: () => ({
     meta: [
       { title: "PCJ — Portal de Conhecimento Jurídico | O Direito para todos" },
