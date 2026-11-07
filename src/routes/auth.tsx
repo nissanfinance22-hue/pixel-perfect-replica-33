@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useServerFn } from '@tanstack/react-start';
 import { ArrowLeft, Delete, LockKeyhole, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -37,11 +37,17 @@ function Auth() {
     setBusy(true);
     try {
       const { ok } = await unlock({ data: { pin } });
-      if (ok) { setGranted(true); setTimeout(() => navigate({ to: '/admin' }), 2600); }
+      if (ok) setGranted(true);
       else { setError(true); setPin(''); }
     } catch { setError(true); setPin(''); }
     finally { setBusy(false); }
   }
+
+  useEffect(() => {
+    if (!granted) return;
+    const t = window.setTimeout(() => navigate({ to: '/admin' }), 2000);
+    return () => window.clearTimeout(t);
+  }, [granted, navigate]);
 
   if (granted) return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-navy px-6 text-center text-navy-foreground">
@@ -51,6 +57,9 @@ function Auth() {
       <p className="granted-line mt-8 text-xs uppercase tracking-[0.4em] text-gold">Acesso liberado</p>
       <h1 className="granted-name mt-4 font-display text-5xl italic sm:text-6xl">Bem-vindo, Administrador</h1>
       <p className="granted-line mt-4 text-sm text-navy-foreground/70">Portal de Conhecimento Jurídico</p>
+      <Button variant="ghost" className="granted-line mt-10 text-gold hover:bg-gold/10 hover:text-gold" onClick={() => navigate({ to: '/admin' })}>
+        Entrar no painel
+      </Button>
     </main>
   );
 
